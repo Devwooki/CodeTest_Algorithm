@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BOJ.iml" filepath="$PROJECT_DIR$/BOJ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BOJ_10250/BOJ_10250.iml" filepath="$PROJECT_DIR$/BOJ_10250/BOJ_10250.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BOJ_10757/BOJ_10757.iml" filepath="$PROJECT_DIR$/BOJ_10757/BOJ_10757.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BOJ_11653/BOJ_11653.iml" filepath="$PROJECT_DIR$/BOJ_11653/BOJ_11653.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BOJ_1193/BOJ_1193.iml" filepath="$PROJECT_DIR$/BOJ_1193/BOJ_1193.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BOJ_1978/BOJ_1978.iml" filepath="$PROJECT_DIR$/BOJ_1978/BOJ_1978.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BOJ_2292/BOJ_2292.iml" filepath="$PROJECT_DIR$/BOJ_2292/BOJ_2292.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BOJ_2581/BOJ_2581.iml" filepath="$PROJECT_DIR$/BOJ_2581/BOJ_2581.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BOJ_2775/BOJ_2775.iml" filepath="$PROJECT_DIR$/BOJ_2775/BOJ_2775.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BOJ_2839/BOJ_2839.iml" filepath="$PROJECT_DIR$/BOJ_2839/BOJ_2839.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BOJ_2869/BOJ_2869.iml" filepath="$PROJECT_DIR$/BOJ_2869/BOJ_2869.iml" />
+    </modules>
+  </component>
+</project>
