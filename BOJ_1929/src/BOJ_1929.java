@@ -3,7 +3,7 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
-public class Main {
+public class BOJ_1929 {
     //시간 복잡도 개선 및 코드 변경
     public static boolean[] prime;
 
