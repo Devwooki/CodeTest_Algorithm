@@ -40,22 +40,13 @@ public class BOJ_2750_1 {
 
         //간략화
         //10989 번 풀이 - 입력값들은 10000보다 작거나 같은 자연수
-        int[] count = new int[10001];
-        for(int i = 0 ; i < n ; i++){
-            count[Integer.parseInt(br.readLine());]++;
-        }
-
-        //counting 누적합 시작
-        for(int i = 1 ; i < count.length ; i++){
-            sb.append[i].
-        }
 
 
 
 
 
 
-        /선택 정렬
+        //선택 정렬
         /*
         for(int i = 0 ; i < n ; i++){
             arr[i] = Integer.parseInt(br.readLine());
