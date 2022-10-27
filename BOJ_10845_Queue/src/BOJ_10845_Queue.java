@@ -8,6 +8,7 @@ import java.util.StringTokenizer;
 public class BOJ_10845_Queue {
     public static void main(String[] args)throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
         Queue<Integer> qu = new LinkedList<>();
         int TC = Integer.parseInt(br.readLine());
         StringTokenizer st;
@@ -23,28 +24,29 @@ public class BOJ_10845_Queue {
                     break;
                 case "pop" :
                     if(!qu.isEmpty())
-                        System.out.println(qu.poll());
+                        sb.append(qu.poll()).append("\n");
                     else
-                        System.out.println(-1);
+                        sb.append(-1).append("\n");
                     break;
                 case "size" :
-                    System.out.println(qu.size());
+                    sb.append(qu.size()).append("\n");
                     break;
                 case "empty" :
                     if(qu.isEmpty())
-                        System.out.println(1);
+                        sb.append(1).append("\n");
                     else
-                        System.out.println(0);
+                        sb.append(0).append("\n");
                     break;
                 case "front" :
-                    if(qu.isEmpty()) System.out.println(-1);
-                    else System.out.println(qu.peek());
+                    if(qu.isEmpty()) sb.append(-1).append("\n");
+                    else sb.append(qu.peek()).append("\n");
                     break;
                 case "back" :
-                    if(qu.isEmpty()) System.out.println(-1);
-                    else System.out.println(last);
+                    if(qu.isEmpty()) sb.append(-1).append("\n");
+                    else sb.append(last).append("\n");
                     break;
             }
         }
+        System.out.println(sb);
     }
 }
