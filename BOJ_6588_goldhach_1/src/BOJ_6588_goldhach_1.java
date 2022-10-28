@@ -17,13 +17,12 @@ public class BOJ_6588_goldhach_1 {
             if(num == 0) break;
             //b-a 차가 적은 것 -> num/2 해서  +1, -1연산 처음나온 것
             //b-a 차가 큰 것 -> 0, num에서 부터 +1, -1연산 처음 나온 것
-            for(int i = 2 ; i < num/2 ; i++ ){
+            for(int i = 2 ; i <= num/2 ; i++ ){
                 if(!prime[i] && !prime[num-i]){
                     sb.append(num).append(" = ").append(i).append(" + ").append(num-i).append("\n");
                     isProve = true;
                     break;
                 }
-
             }
             if(!isProve)
                 sb.append("Goldbach's conjecture is wrong.");
@@ -34,7 +33,7 @@ public class BOJ_6588_goldhach_1 {
     }
 
     public static void getPrime(){
-        //소수 0과 1은
+        //0과 1은 소수 -> false
         prime[0] =  prime[1] = true;
         for(int i = 2 ; i < Math.sqrt(prime.length) ; i++){// 2,,,3,,,4,,
             if(prime[i]) continue; //i가 true => 소수이면 continue
