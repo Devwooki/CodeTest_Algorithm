@@ -33,48 +33,7 @@ public class BOJ_2108_retry {
         sb.append(arr[num/2]).append("\n");
 
         // 최빈값 출력 - 여러개 있을 때 두 번째로 작은 값 출력
-        HashMap<Integer, Integer> valueCount = new HashMap<Integer, Integer>();
-        // 배열을 해쉬테이블로 변경, 중복발견시 값+1
-        for(int v : arr) {
-            if(valueCount.containsKey(v)){
-                valueCount.put(v,valueCount.get(v)+1);
-            }else{
-                valueCount.put(v, 1);
-            }
-        }
 
-        /*
-        max : 빈도 수 가장 큰 값
-        count : max 갯수
-        MaxKey : 첫 번째 최빈 값
-         */
-        int max = 0;
-        int maxCount = 0;
-        int Maxkey = 0;
-
-            //최빈값 발견
-        for(int key : arr){
-            if(max < valueCount.get(key)) {
-                max = valueCount.get(key);
-                Maxkey = key;
-                maxCount = 1;
-            }
-        }
-            //최빈값 여러개 있는지 판단
-        for(int i = 0 ; i < num-1 ; i++){
-            if(arr[i] == arr[i+1])continue; //정렬된 배열에서 현재idx 값과 다음값이 같으면 continue
-            else{                           //다르면 해쉬 value 비교
-                if(valueCount.get(arr[i])==valueCount.get(arr[i+1])){ //value가 같으면 둘의 최빈 값이 같음
-                    if(maxCount==2) {
-                        Maxkey=arr[i];//최빈값 여러개임, 이때 maxcount가 2개면 두 번째  최빈값이므로
-                    }
-                    maxCount++;
-                }
-            }
-        }
-        System.out.println("\n "+valueCount.entrySet() + ", max : " + max + ", count : " + maxCount
-                + ", many : " + Maxkey);
-        sb.append(Maxkey).append("\n");
 
 
 
