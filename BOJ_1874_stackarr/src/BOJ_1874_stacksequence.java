@@ -17,16 +17,16 @@ public class BOJ_1874_stacksequence {
         for(int i = 0; i < TC ; i++){   // 수열 갯수 만큼 반복
 
             int temp = Integer.parseInt(br.readLine());
-
+            //startPoint 부터 temp(입력값)까지  push -> + 출력
             for(; startPoint <= temp ; startPoint++){
                 myStack.push(startPoint);
                 sb.append("+").append("\n");
             }
-
+            //꺼내본게 입력값과 같으면  pop -> - 출력
             if(myStack.peek() == temp){
                 myStack.pop();
                 sb.append("-").append("\n");
-
+            //스택에서  꺼낸게 temp와 다르면 NO출력하고 종료
             }else{
                 System.out.println("NO");
                 System.exit(0);

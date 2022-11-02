@@ -7,3 +7,5 @@ public class BOJ_2304_polygon {
 
     }
 }
+
+
