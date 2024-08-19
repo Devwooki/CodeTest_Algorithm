@@ -1,0 +1,24 @@
+/* 
+11월 1일부터 11월 30일까지 대여가 가능하려면 그 기간내에 대여 기록이 없어야겠죠.
+이걸 역으로 하면 11월 1일 이후에 END_DATE가 있으면서 11월 30일 이전에 START_DATE가 있으면 안됩니다.
+*/
+
+SELECT * 
+FROM (
+    SELECT A.CAR_ID
+        , A.CAR_TYPE
+        , (A.DAILY_FEE * (1-C.DISCOUNT_RATE/100)) * 30 AS FEE
+      FROM CAR_RENTAL_COMPANY_CAR A
+          , CAR_RENTAL_COMPANY_DISCOUNT_PLAN C
+     WHERE A.CAR_TYPE IN ('세단', 'SUV')
+       AND A.CAR_TYPE = C.CAR_TYPE
+       AND C.DURATION_TYPE LIKE '%30%'
+       AND A.CAR_ID NOT IN (
+            SELECT DISTINCT B.CAR_ID FROM  CAR_RENTAL_COMPANY_RENTAL_HISTORY B
+             WHERE 1 = 1
+               AND TO_CHAR(B.END_DATE, 'YYMMDD') >= '221101' 
+               AND TO_CHAR(B.START_DATE, 'YYMMDD') <= '221130')
+)
+WHERE FEE BETWEEN 500000 AND 2000000
+ORDER BY 3 DESC, 2 ASC, 1 DESC
+;
