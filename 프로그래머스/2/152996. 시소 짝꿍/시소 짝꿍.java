@@ -21,6 +21,8 @@ class Solution {
             , 3.0/4.0 //거리 3:4
         };
         for(int weight : weights){
+            //weight의 비례식 결과를 계산한다.
+            //map에 해당 값이 존재할 경우, 쌍을 이뤘기 때문에 answer에 더한다
             for(double ratio : ratios){
                 double weightRatio = weight * ratio;
                 if(map.containsKey(weightRatio)) answer += map.get(weightRatio);
@@ -31,3 +33,11 @@ class Solution {
         return answer;
     }
 }
+/**
+정렬   : 100  100  180  270  360
+비율1  : 100  100  180  270  360 <--- 기준이 되는 값
+-------------------------------
+비율1/2:  50   50   90  135  180 
+비율2/3:  66   66  120  180  240
+비율3/4:  75   75  135  202  270
+*/
