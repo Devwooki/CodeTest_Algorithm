@@ -12,9 +12,9 @@ class Solution {
         
         //스택의 역할 : 보다 큰 수를 찾지 못했을 때 저장하는 통
         /*
-        1. i = 0,스택에 i(2) 넣음
-        2. i = 1, numbers[peek] = 2, numbers[i] = 3 
-           pop한 값은 0임,의 오큰수는 3 -> 
+        1. i = 0,스택에 i(numbers[i] : 2) 넣음
+        2. i = 1, numbers[stack.peek()] = 2, numbers[i] = 3 
+           pop한 값은 0, i = 0일 때의 오큰수는 3 -> 
            answer[pop] = numbers[i]; //이때 스택은 비어있지 않기에 pop 가능
           
             i의 오큰수를 구해야하니, stack에 넣는다.
