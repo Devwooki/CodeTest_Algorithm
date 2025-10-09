@@ -3,66 +3,64 @@ import java.util.*;
 
 public class Main {
     static int N;
-    static ArrayList<Integer>[] map;
+    static ArrayList<Integer>[] friends;
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
-        StringBuilder sb = new StringBuilder();
 
         N = Integer.parseInt(br.readLine());
-        map = new ArrayList[N];
+        friends = new ArrayList[N];
 
+        // 2-친구 case1 : 서로 친구
+        // 2-친구 case2 : 한다리 건너 친구
+
+        // 2-친구가 가장 많은 사람을 찾아야함.
         for(int i = 0 ; i < N ; ++i){
-            map[i] = new ArrayList();
-            String str = br.readLine();
-            for (int j = 0; j < N; j++) {
-                if(str.charAt(j) == 'Y') map[i].add(j);
+            friends[i] = new ArrayList<>();
+            String line = br.readLine();
+            for(int j = 0 ; j < N ; ++j){
+                if(line.charAt(j) == 'Y') friends[i].add(j);
             }
         }
 
         int answer = Integer.MIN_VALUE;
 
-        //친구별 최대값 찾기
-        for (int i = 0; i < N; i++) {
-
-            Queue<Friend> q = new LinkedList<>();
-            q.offer(new Friend(i, 0));
-
+        //사람마다 2-친구의 수를 구한다
+        for(int i = 0 ; i < N ; ++i){
+            Queue<Friend> q = new ArrayDeque<>();
             boolean[] visited = new boolean[N];
 
-
-            //큐에서 꺼낸 경우 저
+            q.offer(new Friend(i, 0));
+            //첫 시작에 방문체크하지 않는다. 자기자신도 친구로 보게 되므로
+            
             while(!q.isEmpty()){
-                Friend now = q.poll();
-                if(now.depth >= 2) break;
+                Friend bas = q.poll();
+                if(bas.depth >= 2) break; //depth가 2보다 크면 2-친구가 아니다.
 
-                for(int next : map[now.idx]){
-                    if(visited[next]) continue; //방문 했으면 건너 뛴다.
-                    if(i == next) continue;
+                //현재 친구의 2-친구를 찾는다.
+                for(int friendIdx : friends[bas.idx]){
+                    if(i ==  friendIdx) continue; //자기자신 간너뛴다
+                    if(visited[friendIdx]) continue; //방문한 친구 건너뜀
 
-                    //아닐 경우
-                    visited[next] = true;
-                    q.offer(new Friend(next, now.depth + 1));
+                    visited[friendIdx] = true; //친구임을 체크한다.
+                    q.offer(new Friend(friendIdx, bas.depth + 1));
                 }
             }
 
-            int friendCnt = 0;
+            int cnt = 0 ;
             for(boolean isFriend : visited){
-                if(isFriend) friendCnt++;
+                if(isFriend) cnt++;
             }
-
-            answer = Math.max(answer, friendCnt);
+            answer = Math.max(answer, cnt);
         }
 
         System.out.println(answer);
-
     }
 
     static class Friend{
         int idx;
         int depth;
 
-        public Friend(int idx, int depth) {
+        Friend(int idx, int depth){
             this.idx = idx;
             this.depth = depth;
         }
